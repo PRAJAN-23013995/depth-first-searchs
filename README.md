@@ -54,30 +54,7 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
  <li>If Not Visited, add it to the STACK. Else Call The Function Again Until No more nodes needs to be visited.</li>
 </ol></B>
 <h3>
- Program:
- from collections import defaultdict
-
-def dfs(graph, start, visited, path):
-    path.append(start)
-    visited[start] = True
-    for neighbour in graph[start]:
-        if not visited[neighbour]:
-            dfs(graph, neighbour,
-                visited, path)
-    return path
-
-graph = defaultdict(list)
-n, e = map(int, input("Enter the number of nodes and edges: ").split())
-
-for i in range(e):
-    u, v = input(f"Enter edge {i+1} (u v): ").split()
-    graph[u].append(v)
-    graph[v].append(u)  # If the graph is undirected; remove this line for a directed graph
-
-if '0' in graph:
-    start = '0'
-else:
-    start = 'A'
+ 
 # Starting node
 visited = defaultdict(bool)
 path = []
@@ -118,9 +95,67 @@ F H <BR>
 <h3>Sample Output</h3>
 <hr>
 ['0', '1', '2', '3', '4']
+<hr>
+<h3>Program:</h3>
+<hr>
+```
+import defaultdict
 
-<hr>
-<h3>Result:</h3>
-<hr>
-<p>Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.</p>
+
+from collections import defaultdict
+
+
+def dfs(graph,start,visited,path):
+
+
+    path.append(start)
+    
+    visited[start]=True
+    
+    for neighbour in graph[start]:
+    
+        if not visited[neighbour]:
+        
+            dfs(graph, neighbour, visited, path)
+            
+    
+    return path
+    
+graph=defaultdict(list)
+
+n,e=map(int,input().split())
+
+for i in range(e):
+
+   #type ur code here
+   
+    u, v = input().split()
+    
+    graph[u].append(v)
+    
+    graph[v].append(u)
+    
+#print(graph)
+
+start='A'
+
+visited=defaultdict(bool)
+
+#type ur code here
+
+path=[]
+
+
+traversedpath=dfs(graph,start,visited,path)
+
+print(traversedpath)
+
+
+```
+
+
+
+
+Result:
+Thus,a Graph was constructed and implementation of Depth First Search for the same graph was done successfully.
 
